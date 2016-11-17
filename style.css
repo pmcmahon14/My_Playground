@@ -70,3 +70,14 @@ img {
     width: 100%;
     border-radius: 20px;
 }
+
+/*card faces*/
+
+
+.back {
+
+}
+
+.john_force {
+    opacity: 0;
+}
