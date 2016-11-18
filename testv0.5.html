@@ -22,29 +22,47 @@
 
                 /*this checks for match*/
 
-                if (first_card_clicked = null) {
+                if (first_card_clicked === null) {
                     first_card_clicked = this;
-                } else if (second_card_clicked = null);{
-                    second_card_clicked = this;
+                    console.log("first_card_clicked");
+                }
+                /*else {
+                second card clicked = this;
+                var first_img = $(first_card_clicked).parent().children('front').find ('img').attr("src");
+                same
+                console.log("first_img: ", first_img);
+                same*/
+                /*if (first_img == second_img) {
+                match_counter++;
+                 first_card_clicked = null;
+                 second_card_clicked = null;
+                 console.log("1st = 2nd and match counter is: ", match_counter);*/
+
+
                     if (first_card_clicked, second_card_clicked) {
-                        first_card_clicked = second_card_clicked;
+                        first_card_clicked == second_card_clicked;
                         match_counter = match_counter + 1;
                         first_card_clicked = null;
                         second_card_clicked = null;
-                        if (match_counter = total_number_matches) {
+                        console.log("match");
+
+                        if (match_counter === total_number_matches) {
                             console.log("You won!");
                         } else {
                             console.log("Good job!");
-                            }
+                            first_card_clicked = null;
+                            second_card_clicked = null;
+                        }
+
                     } else {
                         function timer() {
-                        setTimeout(timer(), 2000);
-                    }
-                }
+                            setTimeout(timer(), 2000);
+                            first_card_clicked = null;
+                            second_card_clicked = null;
+                            console.log("restart");
+                        }
 
-
-
-                     };
+                    };
                 });
         });
         /*wait 2 seconds*/
