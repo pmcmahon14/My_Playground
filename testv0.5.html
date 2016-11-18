@@ -23,36 +23,43 @@
                 /*this checks for match*/
 
                 if (first_card_clicked = null) {
-                    first_card_clicked =
-                } else {
-                    match_counter = match_counter + 1;
-                    first_card_clicked = null;
-                    second_card_clicked = null;
+                    first_card_clicked = this;
+                } else (second_card_clicked = null);{
+                    second_card_clicked = this;
+                    if (first_card_clicked, second_card_clicked) {
+                        first_card_clicked = second_card_clicked;
+                        match_counter = match_counter + 1;
+                        first_card_clicked = null;
+                        second_card_clicked = null;
+                        if (match_counter = total_number_matches) {
+                            console.log("You won!");
+                        } else {
+                            console.log("Good job!");
+                            }
+                        }
+                    }
 
-                     if match_counter = total_number_matches {
-                         return "You won!";
-                     } else {
-                         return "Good job!";
+                /*wait 2 seconds*/
+                /*window.setTimeout(function, milliseconds);
+                 /*Show card back on both elements that are flipped over
+                 reset both card_clicked
+                 variables to null
+                 click handler functionality is complete, return
+
+                 second_card_clicked = .toggleClass("");*/
 
                          /*Not the end of the game here!*/
 
-                     }
-                } else {
-
-                    /*wait 2 seconds*/
-                    /*window.setTimeout(function, milliseconds);
-                    /*Show card back on both elements that are flipped over
-                     reset both card_clicked
-                     variables to null
-                     click handler functionality is complete, return
-
-                    second_card_clicked = .toggleClass("");*/
-                }
-            });
+                     });
+                });
 
 
 
-        });
+
+
+
+
+
     </script>
 </head>
 <body>
