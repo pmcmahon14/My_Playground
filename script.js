@@ -30,8 +30,8 @@ function clickon() {
         if (($(first_card_clicked).find('img').attr('src')) === ($(second_card_clicked).find('img').attr('src'))) {
             console.log("match");
             match_counter++;
-            $(".matching > .value").text(games_played);
-            var accuracy = (games_played / attempts).toFixed(2) * 100 + ('%');
+            $(".matching > .value")/*.text(games_played);*/
+            var accuracy = (match_counter / attempts).toFixed(2) * 100 + ('%');
             $('.accuracy > .value').text(accuracy);
             /*first_card_clicked = null;
              second_card_clicked = null;*/
@@ -45,8 +45,7 @@ function clickon() {
             setTimeout(timer, 2000);
             console.log("restart");
             return;
-            timer()
-        }
+        } timer();
     }
 }
 
