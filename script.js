@@ -10,7 +10,7 @@ var attempts = 0;
 var accuracy = 0;
 
 $(document).ready(function() {
-    console.log("hello")
+    console.log("hello");
     $('.back').click(clickon);
     $('.reset').click(reset_stats);
 });
@@ -19,7 +19,7 @@ $(document).ready(function() {
 
 function clickon() {
     $(this).hide();
-    if (first_card_clicked == null) {
+    if (first_card_clicked === null) {
         first_card_clicked = this;
         return;
         console.log("first_card_clicked");
@@ -30,13 +30,13 @@ function clickon() {
         if (($(first_card_clicked).find('img').attr('src')) === ($(second_card_clicked).find('img').attr('src'))) {
             console.log("match");
             match_counter++;
-            games_played++;
             $(".matching > .value").text(games_played);
             var accuracy = (games_played / attempts).toFixed(2) * 100 + ('%');
             $('.accuracy > .value').text(accuracy);
             /*first_card_clicked = null;
              second_card_clicked = null;*/
             if (match_counter === total_number_matches) {
+                games_played++;
                 console.log("You won!");
             } else {
                 console.log("Good job!");
