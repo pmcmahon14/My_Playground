@@ -9,11 +9,19 @@
     <meta charset="UTF-8">
     <title>The Speedtastic NHRA Memory Game!</title>
     <script>
+        first_card_clicked = null;
+        second_card_clicked = null;
+        total_number_matches = 2;
+        match_counter = 0;
+
+        var games_played = 0;
+        var attempts = 0;
+        var accuracy = 0;
+
+
+
         $(document).ready(function() {
-            first_card_clicked = null;
-            second_card_clicked = null;
-            total_number_matches = 2;
-            match_counter = 0;
+
 
             /*This turns card over*/
 
