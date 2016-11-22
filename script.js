@@ -21,13 +21,18 @@ function clickon() {
     $(this).hide();
     if (first_card_clicked === null) {
         first_card_clicked = this;
-        return;
+        console.log('this is : ', this);
         console.log("first_card_clicked");
+        return;
+
     } else {
         second_card_clicked = this;
         attempts++;
         $('.attempts > .value').text(attempts);
-        if (($(first_card_clicked).find('img').attr('src')) === ($(second_card_clicked).find('img').attr('src'))) {
+        if (($(first_card_clicked).next('img').attr('src')) === ($(second_card_clicked).next('img').attr('src'))) {
+            console.log('first_card_clicked is : ', first_card_clicked);
+            console.log('second_card_clicked is : ', second_card_clicked);
+
             console.log("match");
             match_counter++;
             $(".matching > .value")/*.text(games_played);*/
