@@ -53,14 +53,52 @@ function clickon() {
     second_card_clicked = click1;
     card1 = first_card_clicked;
     attempts++;
-    $('.attempts > .value').text(attempts);
+    display_stats();
     if (($(first_card_clicked).next('img').attr('src')) === ($(second_card_clicked).next('img').attr('src'))) {
         console.log('first_card_clicked is : ', first_card_clicked);
         console.log('second_card_clicked is : ', second_card_clicked);
         console.log("match");
         matches++;
+        match_counter++;
+        accuracy = Math.round(match_counter / attempts * 100);
+        display_stats();
+        first_card.find('.front').addClass('match');
+        clicked_card.find('.front').addClass('match');
+        setTimeout(match, 2000, first_card, clicked_card);
+        first_card_clicked = null;
+        second_card_clicked = null;
+        if (match_counter == total_number_matches) {
+            console.log("You won!");
+            $('.card').addClass('win');
+            setTimeout(won, 2000);
+        }
+    } else {
+        accuracy = (match_counter / attempts) * 100;
+        display_stats();
+        first_card_clicked.find('.front').addClass('diff');
+        second_card_clicked.find('.front').addClass('diff');
+        first_card_clicked = null;
+        second_card_clicked = null;
+        setTimeout(none, 2000, first_card, clicked_card);
+    }
+}
 
+function match(first_card, clicked_card) {
+    first_card.find('.front').removeClass('match');
+    clicked_card.find('.front').removeClass('match');
+}
+function won() {
+    $('.card').removeClass('win');
+}
 
+function noMatch(first_card, clicked_card) {
+    first_card.find('.front').removeClass('diff');
+    clicked_card.find('.front').removeClass('diff');
+    first_card.find('.front').hide();
+    first_card.find('.back').show();
+    clicked_card.find('.front').hide();
+    clicked_card.find('.back').show();
+}
 
 
 
