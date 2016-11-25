@@ -91,13 +91,13 @@ function won() {
     $('.card').removeClass('win');
 }
 
-function noMatch(first_card, clicked_card) {
-    first_card.find('.front').removeClass('diff');
-    clicked_card.find('.front').removeClass('diff');
-    first_card.find('.front').hide();
-    first_card.find('.back').show();
-    clicked_card.find('.front').hide();
-    clicked_card.find('.back').show();
+function noMatch(card1, click1) {
+    card1.find('.front').removeClass('diff');
+    click1.find('.front').removeClass('diff');
+    card1.find('.front').hide();
+    card1.find('.back').show();
+    click1.find('.front').hide();
+    click1.find('.back').show();
 }
 
 
