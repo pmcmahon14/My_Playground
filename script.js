@@ -91,7 +91,7 @@ function won() {
     $('.card').removeClass('win');
 }
 
-function noMatch(card1, click1) {
+function none(card1, click1) {
     card1.find('.front').removeClass('diff');
     click1.find('.front').removeClass('diff');
     card1.find('.front').hide();
