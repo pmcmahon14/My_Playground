@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="description" content="Guessing Game">
+    <meta charset="UTF-8">
+    <title>Guessing Game</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body onload="pickNumber()">
+<form id="guessform">
+    <p>Guesses left: <span id="guessesleft">10</span></p>
+    <p>What's your Guess?</p>
+    <input type="text" name="guess" id="guess" autofocus><br><br>
+    <button type="button" id="guesser">Good Luck!</button>
+    <button type="button" id="startover" onclick="startOver()">Start Over</button>
+</form>
+<div id="displaymessage">
+
+</div>
+<div id="displayrange">
+
+</div>
+
+</body>
+</html>
