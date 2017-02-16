@@ -43,25 +43,32 @@ function pickNewNumber() {
     }
 }
 
-//analyze guess
+//analyze guess and display message for range of 1-100
 
 function analyzeGuess() {
     playerGuess = $('#guess').val();
-    console.log('Guessed ' + playerGuess);
-    console.log('Number to guess ' + targetNumber);
-    if (playerGuess < targetNumber) {
-        $('#displaymessage').text('Oops, too low!');
-        rangefinder();
-    } else if (playerGuess > targetNumber) {
-        $('#displaymessage').text('Whoa, too high!');
-        rangefinder();
+    if (playerGuess < 1 || playerGuess > 100) {
+        $('#displaymessage').text('Guess is out of range. Please try again.');
+        clearForm();
+        $('input').focus();
     } else {
-        $('#displaymessage').text('Boom, confetti!');
-        $('#displayrange').text(targetNumber);
-        $('#guesser').attr('disabled', true);
+        console.log('Guessed ' + playerGuess);
+        console.log('Number to guess ' + targetNumber);
+        if (playerGuess < targetNumber) {
+            $('#displaymessage').text('Oops, too low!');
+            rangefinder();
+        } else if (playerGuess > targetNumber) {
+            $('#displaymessage').text('Whoa, too high!');
+            rangefinder();
+        } else {
+            $('#displaymessage').text('Boom, confetti!');
+            $('#displayrange').text(targetNumber);
+            $('#guesser').attr('disabled', true);
+        }
+        guessCounter();
+        clearForm();
+        $('input').focus();
     }
-    guessCounter();
-    clearForm();
 }
 
 // guess counter
