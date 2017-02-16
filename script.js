@@ -60,10 +60,12 @@ function analyzeGuess() {
         } else if (playerGuess > targetNumber) {
             $('#displaymessage').text('Whoa, too high!');
             rangefinder();
-        } else {
+        } else if (playerGuess == targetNumber) {
             $('#displaymessage').text('Boom, confetti!');
             $('#displayrange').text(targetNumber);
             $('#guesser').attr('disabled', true);
+        } else {
+            $('#displaymessage').text('Good try. The correct number is ' + targetNumber + '.');
         }
         guessCounter();
         clearForm();
@@ -71,7 +73,7 @@ function analyzeGuess() {
     }
 }
 
-// guess counter
+// guess counter and button disabler
 
 function guessCounter() {
     count = count - 1;
@@ -79,7 +81,6 @@ function guessCounter() {
     console.log('Guess ' + count);
     if (count === 0) {
         $('#guesser').attr('disabled', true);
-        $('#displaymessage').text('Good try. The correct number is ' + targetNumber + '.');
     }
 }
 
@@ -129,6 +130,7 @@ function startOver() {
     pickNewNumber();
     console.log(randomNumber);
     targetNumber = randomNumber;
+    $('input').focus();
 }
 
 
