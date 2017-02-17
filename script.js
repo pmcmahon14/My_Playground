@@ -5,6 +5,7 @@ $(document).ready(function() {
     $('#guesser').click(analyzeGuess);
     pickNumber();
     console.log('doc ready: ' + randomNumber);
+    $('#guess').keypress(enterKey);
 });
 
 
@@ -18,6 +19,8 @@ var high = 100;
 var top = 100;
 var bottom = 1;
 
+
+
 function pickNumber() {
     if (randomNumber === null) {
         console.log('function picks: ' + randomNumber);
@@ -27,10 +30,11 @@ function pickNumber() {
         return;
     }
 }
-var targetNumber = pickNumber();
+
+//clears form for next guess
 
 function clearForm() {
-    document.getElementById('guessform').reset();
+    $('#guess').val('');
 }
 
 function pickNewNumber() {
@@ -38,6 +42,14 @@ function pickNewNumber() {
         console.log('function picks: ' + randomNumber);
         randomNumber = Math.floor((Math.random() * 100) + 1);
         return(randomNumber);
+    } else {
+        return;
+    }
+}
+
+function enterKey(event) {
+    if (event.which == 13) {
+        analyzeGuess();
     } else {
         return;
     }
@@ -53,19 +65,19 @@ function analyzeGuess() {
         $('input').focus();
     } else {
         console.log('Guessed ' + playerGuess);
-        console.log('Number to guess ' + targetNumber);
-        if (playerGuess < targetNumber) {
+        console.log('Number to guess ' + randomNumber);
+        if (playerGuess < randomNumber) {
             $('#displaymessage').text('Oops, too low!');
             rangefinder();
-        } else if (playerGuess > targetNumber) {
+        } else if (playerGuess > randomNumber) {
             $('#displaymessage').text('Whoa, too high!');
             rangefinder();
-        } else if (playerGuess == targetNumber) {
+        } else if (playerGuess == randomNumber) {
             $('#displaymessage').text('Boom, confetti!');
-            $('#displayrange').text(targetNumber);
+            $('#displayrange').text(randomNumber);
             $('#guesser').attr('disabled', true);
         } else {
-            $('#displaymessage').text('Good try. The correct number is ' + targetNumber + '.');
+            $('#displaymessage').text('Good try. The correct number is ' + randomNumber + '.');
         }
         guessCounter();
         clearForm();
@@ -87,7 +99,7 @@ function guessCounter() {
 //displays the range of guessed numbers
 
 function rangefinder() {
-    if (playerGuess < targetNumber) {
+    if (playerGuess < randomNumber) {
         console.log('before player guess low: ' + low);
         low = playerGuess;
         console.log('after player guess low: ' + low);
@@ -103,10 +115,10 @@ function rangefinder() {
 //displays range of guesses
 
 function difference() {
-    top = high-targetNumber;
-    console.log('high: ' + high + ' target number: ' + targetNumber + ' top: ' + top);
-    bottom = targetNumber-low;
-    console.log('low: ' + low + ' target number: ' + targetNumber + ' bottom: ' + bottom);
+    top = high-randomNumber;
+    console.log('high: ' + high + ' target number: ' + randomNumber + ' top: ' + top);
+    bottom = randomNumber-low;
+    console.log('low: ' + low + ' target number: ' + randomNumber + ' bottom: ' + bottom);
     console.log('Bottom: ' + bottom, 'Top: ' + top);
 
 }
@@ -131,6 +143,8 @@ function startOver() {
     console.log(randomNumber);
     targetNumber = randomNumber;
     $('input').focus();
+    $('#displaymessage').text('Good luck!');
+    $('#displayrange').text('1-100');
 }
 
 
