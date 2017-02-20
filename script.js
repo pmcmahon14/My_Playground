@@ -2,7 +2,7 @@
  * Created by Patrick on 1/26/2017.
  */
 $(document).ready(function() {
-    $('#guesser').click(analyzeGuess);
+    $('#guess').click(analyzeGuess);
     pickNumber();
     console.log('doc ready: ' + randomNumber);
     $('#guess').keypress(enterKey);
@@ -18,6 +18,7 @@ var low = 1;
 var high = 100;
 var top = 100;
 var bottom = 1;
+var background = null;
 
 
 
@@ -36,6 +37,8 @@ function pickNumber() {
 function clearForm() {
     $('#guess').val('');
 }
+
+//picks a new number after clicking start over
 
 function pickNewNumber() {
     if (randomNumber === null) {
@@ -75,7 +78,7 @@ function analyzeGuess() {
         } else if (playerGuess == randomNumber) {
             $('#displaymessage').text('Boom, confetti!');
             $('#displayrange').text(randomNumber);
-            $('#guesser').attr('disabled', true);
+            $('#guess').attr('disabled', true);
         } else {
             $('#displaymessage').text('Good try. The correct number is ' + randomNumber + '.');
         }
@@ -92,7 +95,47 @@ function guessCounter() {
     $('#guessesleft').text(count);
     console.log('Guess ' + count);
     if (count === 0) {
-        $('#guesser').attr('disabled', true);
+        $('#guess').attr('disabled', true);
+    }changeBackground();
+}
+
+//set background color
+
+window.onload = changeBackground;
+
+function changeBackground() {
+    console.log(count);
+    switch(count) {
+        case 9:
+            document.getElementById('board').style.background = "rgb(50, 255, 0)";
+            break;
+        case 8:
+            document.getElementById('board').style.background = "rgb(100, 255, 0)";
+            break;
+        case 7:
+            document.getElementById('board').style.background = "rgb(150, 255, 0)";
+            break;
+        case 6:
+            document.getElementById('board').style.background = "rgb(200, 255, 0)";
+            break;
+        case 5:
+            document.getElementById('board').style.background = "rgb(255, 255, 0)";
+            break;
+        case 4:
+            document.getElementById('board').style.background = "rgb(255, 200, 0)";
+            break;
+        case 3:
+            document.getElementById('board').style.background = "rgb(255, 150, 0)";
+            break;
+        case 2:
+            document.getElementById('board').style.background = "rgb(255, 100, 0)";
+            break;
+        case 1:
+            document.getElementById('board').style.background = "rgb(255, 50, 0)";
+            break;
+        case 0:
+            document.getElementById('board').style.background = "rgb(255, 0, 0)";
+            break;
     }
 }
 
@@ -132,7 +175,7 @@ function startOver() {
     $('#guessesleft').text(count);
     $('#displaymessage').text('');
     $('#displayrange').text('');
-    $('#guesser').attr('disabled', false);
+    $('#guess').attr('disabled', false);
     top = 100;
     bottom = 1;
     low = 1;
@@ -145,6 +188,7 @@ function startOver() {
     $('input').focus();
     $('#displaymessage').text('Good luck!');
     $('#displayrange').text('1-100');
+    document.getElementById('board').style.background = "rgb(0, 250, 0)";
 }
 
 

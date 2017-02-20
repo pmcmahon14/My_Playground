@@ -1,38 +1,11 @@
-p, div {
-    font-size: 24px;
+p, div, #startover, #guess {
+    font-family: 'Sniglet', cursive;
+    font-size: 32px;
 }
-@keyframes body {
-    0% {
-        background-color: rgb(0, 255, 0);
-    }
-    10% {
-        background-color: rgb(50, 255, 0);
-    }
-    20% {
-        background-color: rgb(100, 255, 0);
-    }
-    30% {
-        background-color: rgb(150, 255, 0);
-    }
-    40% {
-        background-color: rgb(200, 255, 0);
-    }
-    50% {
-        background-color: rgb(255, 255, 0);
-    }
-    60% {
-        background-color: rgb(255, 200, 0);
-    }
-    70% {
-        background-color: rgb(255, 150, 0);
-    }
-    80% {
-        background-color: rgb(255, 100, 0);
-    }
-    90% {
-        background-color: rgb(255, 50, 0);
-    }
-    100% {
-        background-color: rgb(255, 0, 0);
-    }
+body {
+    background-color: rgb(0, 255, 0);
+}
+.container {
+    padding-left: 35%;
+    padding-top: 10%;
 }

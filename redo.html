@@ -6,20 +6,22 @@
     <title>Guessing Game</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="script.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Sniglet" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-<body onload="pickNumber()">
-    <p>Guesses left: <span id="guessesleft">10</span></p>
-    <p>What's your Guess?</p>
-    <input type="text" id="guess" autofocus><br><br>
-    <button type="button" id="guesser">Good Luck!</button>
-    <button type="button" id="startover" onclick="startOver()">Start Over</button>
-<div id="displaymessage">
-Good luck!
-</div>
-<div id="displayrange">
-1-100
-</div>
 
+<body onload="pickNumber()" id="board">
+    <div class="container">
+        <p>Guesses left: <span id="guessesleft">10</span></p>
+        <p>What's your Guess?</p>
+        <input type="text" id="guess" autofocus autocomplete="off"><br><br>
+        <button type="button" id="startover" onclick="startOver()">Start Over</button>
+        <div id="displaymessage">
+            Good luck!
+        </div>
+        <div id="displayrange">
+            1-100
+        </div>
+    </div>
 </body>
 </html>
