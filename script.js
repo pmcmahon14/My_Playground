@@ -21,7 +21,6 @@ var bottom = 1;
 var background = null;
 
 
-
 function pickNumber() {
     if (randomNumber === null) {
         console.log('function picks: ' + randomNumber);
@@ -77,6 +76,7 @@ function analyzeGuess() {
             rangefinder();
         } else if (playerGuess == randomNumber) {
             $('#displaymessage').text('Boom, confetti!');
+            winnerAudio();
             $('#displayrange').text(randomNumber);
             $('#guess').attr('disabled', true);
         } else {
@@ -86,6 +86,11 @@ function analyzeGuess() {
         clearForm();
         $('input').focus();
     }
+}
+
+function winnerAudio() {
+    var win = document.getElementById('winner');
+    win.play();
 }
 
 // guess counter and button disabler
@@ -165,6 +170,12 @@ function difference() {
     console.log('Bottom: ' + bottom, 'Top: ' + top);
 
 }
+
+//plays winner audio upon win
+
+/*function winnerAudio() {
+    "mp3/boom_confetti.mp3".play();
+}*/
 
 //when player clicks start over button
 
