@@ -202,6 +202,7 @@ function startOver() {
 }
 
 //attempt at confetti cannon
+//look into time intervals for start and stop or reset
 
 function confetti() {
     //canvas init
@@ -263,7 +264,7 @@ function confetti() {
             p.x += Math.sin(angle) * 2;
 
             //Sending flakes back from the top when it exits
-            //Lets make it a bit more organic and let flakes enter from the left and right also.
+            //Let's make it a bit more organic and let flakes enter from the left and right also.
             if (p.x > W + 5 || p.x < -5 || p.y > H) {
                 if (i % 3 > 0) //66.67% of the flakes
                 {
@@ -276,7 +277,7 @@ function confetti() {
                         tilt: p.tilt
                     };
                 } else {
-                    //If the flake is exitting from the right
+                    //If the flake is exiting from the right
                     if (Math.sin(angle) > 0) {
                         //Enter from the left
                         particles[i] = {
