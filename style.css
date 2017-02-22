@@ -9,3 +9,11 @@ body {
     padding-left: 35%;
     padding-top: 5%;
 }
+
+/*attempt at confetti cannon*/
+
+/*Simple reset*/
+
+canvas {
+    display: block;
+}
