@@ -54,7 +54,7 @@ function clickon() {
             card1 = first_card_clicked;
             attempts++;
             display_stats();
-            if (first_card_clicked.attr('class') == (second_card_clicked.attr('class')) {
+            if (first_card_clicked.attr('class') == (second_card_clicked.attr('class'))) {
                 console.log('first_card_clicked is : ', first_card_clicked);
                 console.log('second_card_clicked is : ', second_card_clicked);
                 console.log("match");
