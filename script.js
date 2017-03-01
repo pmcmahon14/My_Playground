@@ -45,7 +45,7 @@ function pickNewNumber() {
         randomNumber = Math.floor((Math.random() * 100) + 1);
         return(randomNumber);
     } else {
-        return;
+        //return;
     }
 }
 
@@ -53,7 +53,7 @@ function enterKey(event) {
     if (event.which == 13) {
         analyzeGuess();
     } else {
-        return;
+        //return;
     }
 }
 
@@ -77,7 +77,7 @@ function analyzeGuess() {
         } else if (playerGuess == randomNumber) {
             $('#displaymessage').text('Boom, confetti!');
             winnerAudio();
-            confetti();
+            setTimeout(confetti, 250);
             $('#displayrange').text(randomNumber);
             $('#guess').attr('disabled', true);
         } else {
@@ -199,10 +199,10 @@ function startOver() {
     $('#displaymessage').text('Good luck!');
     $('#displayrange').text('1-100');
     document.getElementById('board').style.background = "rgb(0, 250, 0)";
+    $('#canvas').clear();
 }
 
-//attempt at confetti cannon
-//look into time intervals for start and stop or reset
+//CONFETTI CELEBRATION FOR WIN
 
 function confetti() {
     //canvas init
