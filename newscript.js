@@ -1,7 +1,6 @@
 
 //SET VARIABLES
 
-var timeLeft = $('#timer');
 var firstCard = null;
 var secondCard = null;
 var matchCount = 0;
@@ -15,7 +14,6 @@ var attempts = 0;
 $(document).ready(function(){
     $('.card').click(pickCard);
     //$('.resetCards').click(resetCards);
-    timer();
     reset();
 });
 
@@ -97,13 +95,6 @@ function accuracyRating() {
     accuracy = Math.round((matchCount/attempts)*100) + '%';
     console.log(accuracy);
     $('#accuracy').text(accuracy);
-}
-
-//RUNS TIMER
-
-function timer() {
-    startTime = date.now();
-    timer = setTimeout(updateProgress, 1);
 }
 
 //SETS BOARD UP FOR SELECTED LEVEL OF PLAY
