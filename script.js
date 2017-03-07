@@ -23,7 +23,6 @@ var background = null;
 
 function pickNumber() {
     if (randomNumber === null) {
-        console.log('function picks: ' + randomNumber);
         randomNumber = Math.floor((Math.random() * 100) + 1);
         return(randomNumber);
     } else {
@@ -41,7 +40,6 @@ function clearForm() {
 
 function pickNewNumber() {
     if (randomNumber === null) {
-        console.log('function picks: ' + randomNumber);
         randomNumber = Math.floor((Math.random() * 100) + 1);
         return(randomNumber);
     } else {
@@ -199,7 +197,6 @@ function startOver() {
     $('#displaymessage').text('Good luck!');
     $('#displayrange').text('1-100');
     document.getElementById('board').style.background = "rgb(0, 250, 0)";
-    $('#canvas').clear();
 }
 
 //CONFETTI CELEBRATION FOR WIN
