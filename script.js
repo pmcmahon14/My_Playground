@@ -4,7 +4,6 @@
 $(document).ready(function() {
     $('#guess').click(analyzeGuess);
     pickNumber();
-    console.log('doc ready: ' + randomNumber);
     $('#guess').keypress(enterKey);
 });
 
@@ -19,7 +18,6 @@ var high = 100;
 var top = 100;
 var bottom = 1;
 var background = null;
-var canvas;
 
 
 function pickNumber() {
@@ -63,8 +61,6 @@ function analyzeGuess() {
         clearForm();
         $('input').focus();
     } else {
-        console.log('Guessed ' + playerGuess);
-        console.log('Number to guess ' + randomNumber);
         if (playerGuess < randomNumber) {
             $('#displaymessage').text('Oops, too low!');
             rangefinder();
@@ -98,7 +94,6 @@ function winnerAudio() {
 function guessCounter() {
     count = count - 1;
     $('#guessesleft').text(count);
-    console.log('Guess ' + count);
     if (count === 0) {
         $('#guess').attr('disabled', true);
     }changeBackground();
@@ -109,7 +104,6 @@ function guessCounter() {
 window.onload = changeBackground;
 
 function changeBackground() {
-    console.log(count);
     switch(count) {
         case 9:
             document.getElementById('board').style.background = "rgb(50, 255, 0)";
@@ -148,14 +142,10 @@ function changeBackground() {
 
 function rangefinder() {
     if (playerGuess < randomNumber) {
-        console.log('before player guess low: ' + low);
         low = playerGuess;
-        console.log('after player guess low: ' + low);
     } else {
-        console.log('before player guess high: ' + high);
         high = playerGuess;
-        console.log('after player guess high: ' + high);
-    }console.log(low + '-' + high);
+    }
     $('#displayrange').text(low + '-' + high);
     difference();
 }
@@ -164,10 +154,7 @@ function rangefinder() {
 
 function difference() {
     top = high-randomNumber;
-    console.log('high: ' + high + ' target number: ' + randomNumber + ' top: ' + top);
     bottom = randomNumber-low;
-    console.log('low: ' + low + ' target number: ' + randomNumber + ' bottom: ' + bottom);
-    console.log('Bottom: ' + bottom, 'Top: ' + top);
 
 }
 
@@ -176,9 +163,7 @@ function difference() {
 //when player clicks start over button
 
 function startOver() {
-    console.log('reset pressed');
     count = 10;
-    console.log('Count is: ' + count);
     $('#guessesleft').text(count);
     $('#displaymessage').text('');
     $('#displayrange').text('');
@@ -188,9 +173,7 @@ function startOver() {
     low = 1;
     high = 100;
     randomNumber = null;
-    console.log(randomNumber);
     pickNewNumber();
-    console.log(randomNumber);
     targetNumber = randomNumber;
     $('input').focus();
     $('#displaymessage').text('Good luck!');
@@ -204,7 +187,6 @@ function startOver() {
 function confetti() {
     //canvas init
     canvas = $('<canvas>').attr('id', 'celebrate');
-    console.log('Canvas is ' + canvas);
     $('.confetti').append(canvas);
     var ctx = canvas[0].getContext("2d");
 
