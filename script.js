@@ -19,6 +19,7 @@ var high = 100;
 var top = 100;
 var bottom = 1;
 var background = null;
+var canvas;
 
 
 function pickNumber() {
@@ -195,15 +196,17 @@ function startOver() {
     $('#displaymessage').text('Good luck!');
     $('#displayrange').text('1-100');
     document.getElementById('board').style.background = "rgb(0, 250, 0)";
+    $('canvas').remove();
 }
 
 //CONFETTI CELEBRATION FOR WIN
 
-$('.confetti').append('<canvas>').attr('id', 'canvas');
 function confetti() {
     //canvas init
-    var canvas = document.getElementById("canvas");
-    var ctx = canvas.getContext("2d");
+    canvas = $('<canvas>').attr('id', 'celebrate');
+    console.log('Canvas is ' + canvas);
+    $('.confetti').append(canvas);
+    var ctx = canvas[0].getContext("2d");
 
     //canvas dimensions
     var W = window.innerWidth;
@@ -212,13 +215,13 @@ function confetti() {
     canvas.height = H;
 
     //snowflake particles
-    var mp = 200; //max particles
+    var mp = 2000; //max particles
     var particles = [];
     for (var i = 0; i < mp; i++) {
         particles.push({
             x: Math.random() * W, //x-coordinate
             y: Math.random() * H, //y-coordinate
-            r: Math.random() * 15 + 1, //radius
+            r: Math.random() * 2 + 1, //radius
             d: Math.random() * mp, //density
             color: "rgba(" + Math.floor((Math.random() * 255)) + ", " + Math.floor((Math.random() * 255)) + ", " + Math.floor((Math.random() * 255)) + ", 0.8)",
             tilt: Math.floor(Math.random() * 5) - 5
@@ -301,6 +304,7 @@ function confetti() {
     }
 
     //animation loop
-    setInterval(draw, 20);
+    setInterval(draw, 1);
 }
+
 
