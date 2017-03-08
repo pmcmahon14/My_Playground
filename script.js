@@ -42,16 +42,14 @@ function pickNewNumber() {
     if (randomNumber === null) {
         randomNumber = Math.floor((Math.random() * 100) + 1);
         return(randomNumber);
-    } else {
-        //return;
     }
 }
+
+//allows player to press enter button
 
 function enterKey(event) {
     if (event.which == 13) {
         analyzeGuess();
-    } else {
-        //return;
     }
 }
 
@@ -201,6 +199,7 @@ function startOver() {
 
 //CONFETTI CELEBRATION FOR WIN
 
+$('.confetti').append('<canvas>').attr('id', 'canvas');
 function confetti() {
     //canvas init
     var canvas = document.getElementById("canvas");
