@@ -78,8 +78,6 @@ function pickCard(){
     }
 }
 
-//RESETS CARDS why does back not show again? throws unrecognized picked card error
-
 //RESETS STATS
 
 function reset () {
