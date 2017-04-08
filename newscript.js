@@ -106,3 +106,38 @@ function settings() {
 function shuffle() {
 
 }
+/* Called by "$(document).ready" and "resetClicked".  Appends the 9 card fronts (2x) randomly into the 18 slots. */
+
+/*function insertFrontCards () {
+    var card;
+    var card_img;
+    var slot;
+    var randomized_array;
+    randomized_array = generateRandomCardSlots();
+    for (var h=0; h <= 9; h+=9) {
+        for (var i=1; i <= 9; i++) {                // go thru this loop 2x, when h=0 and h=9.
+            if (theme === "pokemon") {
+                if (i === 3 || i === 4) {
+                    card = "images/pkmn_" + i + ".png";
+                } else {
+                    card = "images/pkmn_" + i + ".jpg";
+                }
+            } else {    // My Little Pony theme
+                if (i === 4) {
+                    card = "images/pony4b.png";     // pony4 is a png; all the rest are jpg
+                } else {
+                    card = "images/pony" + i + "b.jpg";
+                }
+            }
+            card_img = $("<img>",
+                {
+                    src:    card,
+                    alt:    "pony or pkmn" + i,
+                    class:  "card_front"
+                });
+            slot = "#slot" + randomized_array[i-1+h] + " .front";
+            $(slot).append(card_img);
+        }
+    }
+    $("img").width("90%").height("100%");
+}*/

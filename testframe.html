@@ -9,30 +9,35 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="newstyle.css">
     <style>
-        body.img-responsive {
-            background-image: url("Images/Jimmie_2048x1309.jpg");
-/* need opacity change for background here */
+        body .img-responsive {
+            opacity: .7;
         }
         @media (min-width: 600px) {
             div {
-                height: 16vh;
+                height: 20vh;
+            }
+            img {
+                max-width: 100%;
+                height: auto;
             }
         }
     </style>
 </head>
 <body>
     <div class="container-fluid">
-        <img src="Images/Jimmie_2048x1309.jpg" class="background img-responsive">
-        <div class="row col-md-12">
+        <img src="Images/background/Jimmie_2048x1309.jpg" class="background img-responsive">
+        <div class="row col-xs-12">
             <p>NASCAR</p>
+            <p>Timer</p>
+            <p id="timeleft">0</p>
         </div>
         <div class="row">
             <div class="col-xs-2 scoretower" style="background-color: white">
-                <p>Timer</p>
-                <p id="timeleft">0</p>
+                <p class="heading">Matches</p>
+                <p class=counter" id="matches">0</p>
             </div>
             <div class="cards">
-                <div class="col-xs-2" style="background-color: blue"><img src="Images/Chase Elliott 550x440.png" class="img-responsive"></div>
+                <div class="col-xs-2" style="background-color: blue"><img src="Images/chase_175.png"></div>
                 <div class="col-xs-2" style="background-color: pink">card</div>
                 <div class="col-xs-2" style="background-color: blue">card</div>
                 <div class="col-xs-2" style="background-color: pink">card</div>
@@ -40,9 +45,9 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-2 scoretower" style="background-color: white">
-                <h3>Matches</h3>
-                <p>0</p>
+            <div class="col-xs-2 scoretower" style="background-color: white">
+            <p class="heading">Attempts</p>
+                <p class="counter" id="attempts">0</p>
             </div>
             <div class="cards">
                 <div class="col-sm-2" style="background-color: blue">card</div>
@@ -54,8 +59,8 @@
         </div>
         <div class="row">
             <div class="col-sm-2 scoretower" style="background-color: white">
-                <h3>Attempts</h3>
-                <p>0</p>
+                <p class="heading">Accuracy</p>
+                <p class="counter" id="accuracy">0</p>
             </div>
             <div class="cards">
                 <div class="col-sm-2" style="background-color: blue">card</div>
@@ -67,21 +72,8 @@
         </div>
         <div class="row">
             <div class="col-sm-2 scoretower" style="background-color: white">
-                <h3>Accuracy</h3>
-                <p>0</p>
-            </div>
-            <div class="cards">
-                <div class="col-sm-2" style="background-color: blue">card</div>
-                <div class="col-sm-2" style="background-color: pink">card</div>
-                <div class="col-sm-2" style="background-color: blue">card</div>
-                <div class="col-sm-2" style="background-color: pink">card</div>
-                <div class="col-sm-2" style="background-color: blue">card</div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-2 scoretower" style="background-color: white">
-                <h3>Wins</h3>
-                <p>0</p>
+                <p class="heading">Wins</p>
+                <p class="counter" id="wins">0</p>
             </div>
             <div class="cards">
                 <div class="col-sm-2" style="background-color: blue">card</div>
