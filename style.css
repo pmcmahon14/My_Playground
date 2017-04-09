@@ -1,82 +1,53 @@
-
-body {
-/*need opacity background image here*/
+@media only screen and (max-width: 600px){
+    .container {
+        display: none;
+    }
 }
-.header {
-    background-color: lightblue;
-    height: 5%;
+@media only screen and (min-width: 600px){
+    .container {
+        margin: 0;
+        height: 80vh;
+        width: 100vw;
+    }
 }
-.logo {
-    width:10%;
+.background {
+    opacity: .5;
+    max-width: 100%;
 }
-.logo img {
-    width: 75px;
-    height: 48px;
+#stats{
+    width:20%;
+    height:100%;
+    float:left;
 }
-.nametag {
-    width: 60%;
-    display: table-cell;
-    padding-left: 20%;
-}
-.settings {
-    width: 15%;
-    vertical-align: middle;
-}
-.about {
-    width: 15%;
-    display: table-cell;
-}
-.statistics {
-    background-color:red;
-    width: 10%;
-    float: left;
-}
-h1 {
+#scoretower {
+    padding-top: 11vh;
     text-align: center;
-    vertical-align: middle;
-    /*study fonts*/
+    font-size: 20px;
 }
-h2, h4 {
-    padding: 32% 0;
+.heading {
+    font-weight: bolder;
 }
-ul {
-    list-style-type: none;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+.menus {
+    height:5%;
+    background-color: black;
 }
-.nav li {
-    display:table-cell;
+#playingfield {
+    padding-top: 5vh;
+    height:100vh;
+    width: 100vw;
 }
-.game-area {
-    border: 2px solid black;
-    padding: 2%;
-    text-align: center;
-}
-
 .card {
     display: inline-block;
-    width: 120px;
-    height: 160px;
+    height: 15vh;
+    width: 12vw;
+    border: solid 1px black;
+    margin: 10px;
     position: relative;
-    margin: 0 2%;
     overflow: hidden;
+    background-color: black;
 }
-
 img {
     position: absolute;
-    top: 0;
-    left: 0;
     height: 100%;
-    width: 100%;
-    border-radius: 20px;
+    max-width: 100%;
 }
-
-/*card faces*/
-
-
-.back {
-
-}
-
-
