@@ -1,145 +1,143 @@
-/**
- * Created by Patrick on 11/16/2016.
- */
-first_card_clicked = null;
-second_card_clicked = null;
-total_number_matches = 2;
-var match_counter = 0;
-var matches = 0;
-var games_played = 0;
-var attempts = 0;
-var accuracy = 0;
 
-$(document).ready(function() {
-    console.log("hello");
-    $('.back').click(clickon);
-    $('.reset').click(function() {
-        games_played++;
-        reset_stats();
-        $('.front').hide();
-        $('.back').show();
-    });
+//SET VARIABLES
+
+var firstCard = null;
+var secondCard = null;
+var matchCount = 0;
+var totalMatch = 10;
+var winCount = 0;
+var accuracy = 0;
+var attempts = 0;
+
+//LOAD SCREEN
+
+$(document).ready(function(){
+    $('.card').click(pickCard);
+    //$('.resetCards').click(resetCards);
+    reset();
 });
 
-function display_stats() {
-    $('.games-played').find('.value').text(games_played);
-    $('.attempts').find('.value').text(attempts);
-    accuracyString = accuracy + "%";
-    $('.accuracy').find('.value').text(accuracyString);
-}
+//READS VALUES OF BOTH CARDS
 
-function reset_stats(){
-    accuracy = 0;
-    matches = 0;
-    attempts = 0;
-    match_counter = 0;
-    first_card_clicked = null;
-    second_card_clicked = null;
-    display_stats();
-}
-
-/*this checks for match*/
-
-function clickon() {
-    var click1 = $(this).parent();
-    var card1 = null;
-    click1.find('.back').hide();
-    click1.find('.front').show();
-    if (first_card_clicked === null) {
-        first_card_clicked = click1;
-        console.log('this is : ', this);
-        console.log("first_card_clicked");
-    }   else {
-            second_card_clicked = click1;
-            card1 = first_card_clicked;
+function pickCard(){
+    if($(this).find('.back').is(':visible') === true){
+        $(this).find('.back').hide();
+        console.log('back hidden');
+        if(firstCard === null){
+            firstCard = this;
+            console.log('first card is', firstCard);
+            return
+            }else{
+            secondCard = this;
             attempts++;
-            display_stats();
-            if (first_card_clicked.attr('class') == (second_card_clicked.attr('class'))) {
-                console.log('first_card_clicked is : ', first_card_clicked);
-                console.log('second_card_clicked is : ', second_card_clicked);
-                console.log("match");
-                matches++;
-                match_counter++;
-                accuracy = Math.round(match_counter / attempts * 100);
-                display_stats();
-                card1.find('.front').addClass('match');
-                click1.find('.front').addClass('match');
-                setTimeout(match, 2000, card1, click1);
-                first_card_clicked = null;
-                second_card_clicked = null;
-                if (match_counter == total_number_matches) {
-                    console.log("You won!");
-                    $('.card').addClass('win');
-                    setTimeout(won, 2000);
-                }
-            } else {
-                accuracy = (match_counter / attempts) * 100;
-                display_stats();
-                first_card_clicked.find('.front').addClass('diff');
-                second_card_clicked.find('.front').addClass('diff');
-                first_card_clicked = null;
-                second_card_clicked = null;
-                setTimeout(none, 2000, card1, click1);
+            $('#attempts').text(attempts);
+            console.log('second card is', secondCard);
+
+            //DETERMINE MATCH, UPDATE MATCH, ACCURACY RATING
+
+            if($(firstCard).find('.front > img ').attr('src') === $(secondCard).find('.front > img').attr('src')){
+                matchCount++;
+                $('#matches').text(matchCount);
+                firstCard = null;
+                secondCard = null;
+                console.log('You have a match!', matchCount);
+                accuracyRating();
+
+                //CHECKS FOR GAME WIN, UPDATE WIN COUNT
+
+                if(matchCount < totalMatch){
+                    return
+                    }else{
+                    winCount++;
+                    $('#wins').text(winCount);
+                    $('#winner').show();
+                    $('.reset').off('click');
+                    }
+
+                    //NO MATCH, TURN CARDS BACK OVER, UPDATE ACCURACY RATING AT FUNCTION
+
+                    }else{
+                $('.card').off('click');
+                setTimeout(function(){
+                    $(firstCard).find('.back').show();
+                    $(secondCard).find('.back').show();
+                    firstCard = null;
+                    secondCard = null;
+                    $('.card').click(pickCard);
+                    }, 1000)
+                accuracyRating();
+
             }
-    }
-}
+        }
 
-function match(card1, click1) {
-    card1.find('.front').removeClass('match');
-    click1.find('.front').removeClass('match');
-}
-function won() {
-    $('.card').removeClass('win');
-}
+    //BLOCKS CARD ALREADY FACE UP
 
-function none(card1, click1) {
-    card1.find('.front').removeClass('diff');
-    click1.find('.front').removeClass('diff');
-    card1.find('.front').hide();
-    card1.find('.back').show();
-    click1.find('.front').hide();
-    click1.find('.back').show();
-}
-
-
-
-/*function clickon() {
-    $(this).hide();
-    if (first_card_clicked === null) {
-        first_card_clicked = this;
-        console.log('this is : ', this);
-        console.log("first_card_clicked");
+    }else{
+        console.log('already clicked', this);
         return;
-    } else {
-        second_card_clicked = this;
-        attempts++;
-        $('.attempts > .value').text(attempts);
-        if (($(first_card_clicked).next('img').attr('src')) === ($(second_card_clicked).next('img').attr('src'))) {
-            console.log('first_card_clicked is : ', first_card_clicked);
-            console.log('second_card_clicked is : ', second_card_clicked);
-            console.log("match");
-            matches++;
-            $(".matching > .value")/*.text(games_played);
-            var accuracy = (matches / attempts).toFixed(2) * 100 + ('%');
-            $('.accuracy > .value').text(accuracy);
-            first_card_clicked = null;
-             second_card_clicked = null;
-            if (matches === total_number_matches) {
-                games_played++;
-                console.log("You won!");
-            } else {
-                console.log("Good job!");
-            }
-        } else {
-            setTimeout(timer, 2000);
-            console.log("restart");
-            return;
-        } timer();
     }
 }
-function timer() {
-    $(first_card_clicked).find('.back').show();
-    $(second_card_clicked).find('.front').show();
+
+//RESETS STATS
+
+function reset () {
+    matchCount = 0;
+    winCount = 0;
+    accuracy = 0;
+    attempts = 0;
+}
+
+//CALCULATES ACCURACY
+
+function accuracyRating() {
+    accuracy = Math.round((matchCount/attempts)*100) + '%';
+    console.log(accuracy);
+    $('#accuracy').text(accuracy);
+}
+
+//SETS BOARD UP FOR SELECTED LEVEL OF PLAY
+
+function settings() {
+
+}
+
+//PICKS PAIRS AND SHUFFLES CARDS
+
+function shuffle() {
+
+}
+/* Called by "$(document).ready" and "resetClicked".  Appends the 9 card fronts (2x) randomly into the 18 slots. */
+
+/*function insertFrontCards () {
+    var card;
+    var card_img;
+    var slot;
+    var randomized_array;
+    randomized_array = generateRandomCardSlots();
+    for (var h=0; h <= 9; h+=9) {
+        for (var i=1; i <= 9; i++) {                // go thru this loop 2x, when h=0 and h=9.
+            if (theme === "pokemon") {
+                if (i === 3 || i === 4) {
+                    card = "images/pkmn_" + i + ".png";
+                } else {
+                    card = "images/pkmn_" + i + ".jpg";
+                }
+            } else {    // My Little Pony theme
+                if (i === 4) {
+                    card = "images/pony4b.png";     // pony4 is a png; all the rest are jpg
+                } else {
+                    card = "images/pony" + i + "b.jpg";
+                }
+            }
+            card_img = $("<img>",
+                {
+                    src:    card,
+                    alt:    "pony or pkmn" + i,
+                    class:  "card_front"
+                });
+            slot = "#slot" + randomized_array[i-1+h] + " .front";
+            $(slot).append(card_img);
+        }
+    }
+    $("img").width("90%").height("100%");
 }*/
-
-
