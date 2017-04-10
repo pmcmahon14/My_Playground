@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>The Speedtastic NASCAR Memory Match Game!</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="newscript.js"></script>
+    <link rel="stylesheet" href="newstyle.css">
+</head>
+<body>
+<div class="container-fluid">
+<img src="Images/Jimmie_2048x1309.jpg" class="background">
+<div id="stats">
+    <div id="scoretower">
+        <p class="heading">Timer</p>
+        <p class="counter" id="timeleft">60</p>
+        <p class="heading">Matches</p>
+        <p class=counter" id="matches">0</p>
+        <p class="heading">Attempts</p>
+        <p class="counter" id="attempts">0</p>
+        <p class="heading">Accuracy</p>
+        <p class="counter" id="accuracy">0</p>
+        <p class="heading">Wins</p>
+        <p class="counter" id="wins">0</p>
+    </div>
+</div>
+<div class="menus">
+
+</div>
+<div id="playingfield">
+    <div class="card">
+        <div class="front">
+            <img src="Images/Chase Elliott 550x440.png">
+        </div>
+        <div class="back">
+            <img src="Images/NASCAR logo 570x375.png">
+        </div>
+    </div>
+    <div class="card">
+        <div class="front">
+            <img src="Images/Dale%20Earnhardt%20Jr.%20550x440.png">
+        </div>
+        <div class="back">
+            <img src="Images/NASCAR logo 570x375.png">
+        </div>
+    </div>
+    <div class="card">
+        <div class="front">
+            <img src="Images/Danica%20Patrick%20550x440.png">
+        </div>
+        <div class="back">
+            <img src="Images/NASCAR logo 570x375.png">
+        </div>
+    </div>
+    <div class="card">
+        <div class="front">
+            <img src="Images/Tony%20Stewart%20550x440.png">
+        </div>
+        <div class="back">
+            <img src="Images/NASCAR logo 570x375.png">
+        </div>
+    </div>
+    <div class="card">
+        <div class="front">
+            <img src="Images/Chase Elliott 550x440.png">
+        </div>
+        <div class="back">
+            <img src="Images/NASCAR logo 570x375.png">
+        </div>
+    </div>
+    <div class="card">
+        <div class="front">
+            <img src="Images/Jimmie%20Johnson%20550x440.png">
+        </div>
+        <div class="back">
+            <img src="Images/NASCAR logo 570x375.png">
+        </div>
+    </div>
+    <div class="card">
+        <div class="front">
+            <img src="Images/Danica%20Patrick%20550x440.png">
+        </div>
+        <div class="back">
+            <img src="Images/NASCAR logo 570x375.png">
+        </div>
+    </div>
+    <div class="card">
+        <div class="front">
+            <img src="Images/Brad%20Keselowski%20550x440.png">
+        </div>
+        <div class="back">
+            <img src="Images/NASCAR logo 570x375.png">
+        </div>
+    </div>
+    <div class="card">
+        <div class="front">
+            <img src="Images/Tony%20Stewart%20550x440.png">
+        </div>
+        <div class="back">
+            <img src="Images/NASCAR logo 570x375.png">
+        </div>
+    </div>
+    <div class="card">
+        <div class="front">
+            <img src="Images/Carl%20Edwards%20550x440.png">
+        </div>
+        <div class="back">
+            <img src="Images/NASCAR logo 570x375.png">
+        </div>
+    </div>
+    <div class="card">
+        <div class="front">
+            <img src="Images/Kyle%20Busch%20550x440.png">
+        </div>
+        <div class="back">
+            <img src="Images/NASCAR logo 570x375.png">
+        </div>
+    </div>
+    <div class="card">
+        <div class="front">
+            <img src="Images/Carl%20Edwards%20550x440.png">
+        </div>
+        <div class="back">
+            <img src="Images/NASCAR logo 570x375.png">
+        </div>
+    </div>
+    <div class="card">
+        <div class="front">
+            <img src="Images/Kevin%20Harvick%20550x440.png">
+        </div>
+        <div class="back">
+            <img src="Images/NASCAR logo 570x375.png">
+        </div>
+    </div>
+    <div class="card">
+        <div class="front">
+            <img src="Images/Dale%20Earnhardt%20Jr.%20550x440.png">
+        </div>
+        <div class="back">
+            <img src="Images/NASCAR logo 570x375.png">
+        </div>
+    </div>
+    <div class="card">
+        <div class="front">
+            <img src="Images/Kyle%20Busch%20550x440.png">
+        </div>
+        <div class="back">
+            <img src="Images/NASCAR logo 570x375.png">
+        </div>
+    </div>
+    <div class="card">
+        <div class="front">
+            <img src="Images/Brad%20Keselowski%20550x440.png">
+        </div>
+        <div class="back">
+            <img src="Images/NASCAR logo 570x375.png">
+        </div>
+    </div>
+    <div class="card">
+        <div class="front">
+            <img src="Images/Joey%20Logano%20550x440.png">
+        </div>
+        <div class="back">
+            <img src="Images/NASCAR logo 570x375.png">
+        </div>
+    </div>
+    <div class="card">
+        <div class="front">
+            <img src="Images/Kevin%20Harvick%20550x440.png">
+        </div>
+        <div class="back">
+            <img src="Images/NASCAR logo 570x375.png">
+        </div>
+    </div>
+    <div class="card">
+        <div class="front">
+            <img src="Images/Joey%20Logano%20550x440.png">
+        </div>
+        <div class="back">
+            <img src="Images/NASCAR logo 570x375.png">
+        </div>
+    </div>
+    <div class="card">
+        <div class="front">
+            <img src="Images/Jimmie%20Johnson%20550x440.png">
+        </div>
+        <div class="back">
+            <img src="Images/NASCAR logo 570x375.png">
+        </div>
+    </div>
+</div>
+</div>
+
+</body>
+</html>
