@@ -85,6 +85,7 @@ function reset () {
     winCount = 0;
     accuracy = 0;
     attempts = 0;
+    $('.back').toggleClass("make_opaque");
 }
 
 //CALCULATES ACCURACY
