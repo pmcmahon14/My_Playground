@@ -57,3 +57,6 @@ img {
 button {
     background-color: red;
 }
+.background {
+    z-index: -1;
+}
