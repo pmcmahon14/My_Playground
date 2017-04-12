@@ -54,3 +54,6 @@ img {
 .counter {
     padding-bottom: 0px;
 }
+button {
+    background-color: red;
+}
