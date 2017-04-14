@@ -80,11 +80,15 @@ function pickCard(){
 
 //RESETS STATS
 
-function reset () {
+function reset() {
     matchCount = 0;
-    winCount = 0;
     accuracy = 0;
     attempts = 0;
+    $('#matches').text(matchCount);
+    $('#attempts').text(attempts);
+    $('#accuracy').text(accuracy);
+    $('.back').show();
+    console.log('reset clicked');
 }
 
 //CALCULATES ACCURACY
