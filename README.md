@@ -22,6 +22,7 @@ accuracy of their choices.
 > ##### - In each main level, there will be three levels of four, six, and ten matching pairs with increasing timers
 #####4. The stats display on the left will resemble a racetrack score tower
 #####5. The background will play a video upon a win
+#####6. Add flags to reflect conditions (e.g. green, yellow, red, green/white, checkered)
 
 > <a href="https://drive.google.com/open?id=0B3R9g7F9YRS6SHd3Q3lRdWF0RkU" target="_blank">Flow Document</a>
 
