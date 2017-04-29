@@ -133,7 +133,7 @@ function shuffle() {
                     card = "images/pony" + i + "b.jpg";
                 }
             }
-            card_img = $("<img>",
+            card_img = $("<image>",
                 {
                     src:    card,
                     alt:    "pony or pkmn" + i,
@@ -143,5 +143,5 @@ function shuffle() {
             $(slot).append(card_img);
         }
     }
-    $("img").width("90%").height("100%");
+    $("image").width("90%").height("100%");
 }*/

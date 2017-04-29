@@ -114,7 +114,7 @@ function none(card1, click1) {
         second_card_clicked = this;
         attempts++;
         $('.attempts > .value').text(attempts);
-        if (($(first_card_clicked).next('img').attr('src')) === ($(second_card_clicked).next('img').attr('src'))) {
+        if (($(first_card_clicked).next('image').attr('src')) === ($(second_card_clicked).next('image').attr('src'))) {
             console.log('first_card_clicked is : ', first_card_clicked);
             console.log('second_card_clicked is : ', second_card_clicked);
             console.log("match");
